@@ -17,4 +17,4 @@ Add to your `~/.lldbinit`, or run each time you start `lldb`:
 command script import PATH/TO/printStack.py
 ```
 
-Then call `printFrame` from within `lldb`.
+Then call `printStack` from within `lldb`.

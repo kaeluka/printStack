@@ -103,4 +103,4 @@ def printStack(debugger, command, result, internalDict):
 
 def __lldb_init_module(debugger, internal_dict):
     debugger.HandleCommand(
-        'command script add -f memviz.printStack printStack')
+        'command script add -f printStack.printStack printStack')
