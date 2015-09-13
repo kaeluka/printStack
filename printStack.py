@@ -25,7 +25,8 @@ def printLine(var, functionName, outfile):
     val = var.GetValue()
     if val == None:
         #some vars, like structs, don't have values. Only their fields do!
-        return
+        val = '...'
+
     typ = var.GetTypeName()
     size = var.GetByteSize()
     outfile.write('%s,%s,%s,%s,%i\n' % (functionName, name, val, typ, size))
@@ -35,7 +36,7 @@ def printLine(var, functionName, outfile):
             colormap[val] = colors[coloridx]
             coloridx = (coloridx + 1) % len(colors)
         val = colored(val, colormap[val])
-    print '%20s = %-20s : %-10s (size = %-2i)' % (name, val, typ, size)
+    print '%20s\t= %-20s : %-10s (size = %-2i)' % (name, val, typ, size)
 
 
 def showValue(var, functionName, outfile):
@@ -61,11 +62,10 @@ def showOverview(var, functionName, outfile):
 
 def showHeader(msg='', pattern='=', attrs=[]):
     assert len(pattern) == 1
-    length = 70
+    length = 71
     if msg != '':
         h = pattern + ' ' + colored(msg, 'white', attrs=attrs) + ' '
-        h = h + pattern * (length - len(h))
-        assert len(h) == length
+        h = h + pattern * (length - len(msg) - 3)
         print(h)
     else:
         print(pattern * length)
