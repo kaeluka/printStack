@@ -6,7 +6,7 @@ An `lldb` command that prints the whole stack and all values on it.
 
 ## Dependencies
 
- - lldb
+ - `lldb`
  - `termcolor` (`pip install termcolor`)
 
 ## Usage
