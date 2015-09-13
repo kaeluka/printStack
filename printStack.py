@@ -47,6 +47,9 @@ def showWithChildren(var, functionName, outfile):
     if var.MightHaveChildren():
         for i in range(0, var.GetNumChildren()):
             chld = var.GetChildAtIndex(i)
+            if chld.TypeIsPointerType() and chld.GetValue() == None:
+                continue
+            #if chld.GetError():
             #print('child=%s' % str(chld))
             showWithChildren(chld, functionName, outfile)
 
@@ -62,7 +65,7 @@ def showHeader(msg='', pattern='=', attrs=[]):
     if msg != '':
         h = pattern + ' ' + colored(msg, 'white', attrs=attrs) + ' '
         h = h + pattern * (length - len(h))
-        assert len(h) == 70
+        assert len(h) == length
         print(h)
     else:
         print(pattern * length)

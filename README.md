@@ -1,6 +1,7 @@
 # printStack
 
-An `lldb` command that prints the whole stack and all values on it.
+An `lldb` command that prints the whole stack, all globals -- and all
+memory reachable from them (including heap memory).
 
 Also dumps all information to a csv file `stack.dump`.
 
