@@ -2,6 +2,8 @@
 
 An `lldb` command that prints the whole stack and all values on it.
 
+Also dumps all information to a csv file `stack.dump`.
+
 ![](./printStack.png?raw=true)
 
 ## Dependencies
